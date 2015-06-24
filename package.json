@@ -23,10 +23,12 @@
     "test": "mocha -R spec test/environment.js test/unit/*_test.js",
     "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R dot test/environment.js test/unit/*_test.js",
     "lint": "jscs lib && eslint lib",
-    "prepublish": "npm run test && npm run lint"
+    "prepublish": "npm run test && npm run lint",
+    "travis": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/environment.js test/*_test.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "devDependencies": {
     "chai": "^3.0.0",
+    "coveralls": "^2.11.2",
     "istanbul": "^0.3.16",
     "mocha": "^2.2.5",
     "proxyquire": "^1.5.0",

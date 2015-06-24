@@ -2,6 +2,10 @@
 
 Express middleware to log, using [logops](https://github.com/telefonicaid/logops) library, each request and response.
 
+[![npm version](https://badge.fury.io/js/express-logging.svg)](http://badge.fury.io/js/express-logging)
+[![Build Status](https://travis-ci.org/Telefonica/express-logging.svg)](https://travis-ci.org/Telefonica/express-logging)
+[![Coverage Status](https://img.shields.io/coveralls/Telefonica/express-logging.svg)](https://coveralls.io/r/Telefonica/express-logging)
+
 ## Installation
 
 ```bash
