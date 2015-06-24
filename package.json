@@ -7,16 +7,23 @@
     "name": "Jorge Lorenzo Gallardo",
     "email": "jorge.lorenzogallardo@telefonica.com"
   },
+  "contributors": [
+    "Juan Antonio Hernando Labajo <juanantonio.hernandolabajo@telefonica.com>",
+    "Guido García Bernardo <guido.garciabernardo@telefonica.com>"
+  ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:telefonicaid/node-express-logging"
+    "url": "git@github.com:telefonica/node-express-logging.git"
   },
-  "main": "lib/configuration",
+  "main": "lib/logging",
   "engines": {
     "node": ">= 0.10.26"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "mocha -R spec test/environment.js test/unit/*_test.js",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R dot test/environment.js test/unit/*_test.js",
+    "lint": "jscs lib && eslint lib",
+    "prepublish": "npm run test && npm run lint"
   },
   "devDependencies": {
     "chai": "~1.8.0",
@@ -51,9 +58,5 @@
     "logging",
     "express",
     "middleware"
-  ],
-  "contributors": [
-    "Juan Antonio Hernando Labajo <juanantonio.hernandolabajo@telefonica.com>",
-    "Guido García Bernardo <guido.garciabernardo@telefonica.com>"
   ]
 }
