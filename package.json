@@ -26,22 +26,22 @@
     "prepublish": "npm run test && npm run lint"
   },
   "devDependencies": {
-    "chai": "~1.8.0",
-    "istanbul": "~0.1.34",
-    "mocha": "~1.13.0",
-    "proxyquire": "0.5.1",
-    "should": "^4.6.1",
-    "sinon": "~1.7.3",
-    "sinon-chai": "2.4.0",
-    "supertest": "^0.15.0",
-    "xunit-file": "~0.0.4",
+    "chai": "^3.0.0",
+    "istanbul": "^0.3.16",
+    "mocha": "^2.2.5",
+    "proxyquire": "^1.5.0",
+    "should": "^7.0.1",
+    "sinon": "~1.15.3",
+    "sinon-chai": "^2.8.0",
+    "supertest": "^1.0.1",
+    "xunit-file": "^0.0.4",
     "jscs": "^1.13.1",
     "eslint": "^0.23.0"
   },
   "dependencies": {
     "node-uuid": "^1.4.2",
     "on-headers": "^1.0.0",
-    "logops": "^0.2.0"
+    "logops": "^0.4.1"
   },
   "keywords": [
     "logging",
