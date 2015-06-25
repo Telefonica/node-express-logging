@@ -3,8 +3,8 @@
 Express middleware to log, using [logops](https://github.com/telefonicaid/logops) library, each request and response.
 
 [![npm version](https://badge.fury.io/js/express-logging.svg)](http://badge.fury.io/js/express-logging)
-[![Build Status](https://travis-ci.org/Telefonica/node-express-logging.svg)](https://travis-ci.org/Telefonica/node-express-logging)
-[![Coverage Status](https://img.shields.io/coveralls/Telefonica/node-express-logging.svg)](https://coveralls.io/r/Telefonica/node-express-logging)
+[![Build Status](https://travis-ci.org/telefonica/node-express-logging.svg)](https://travis-ci.org/telefonica/node-express-logging)
+[![Coverage Status](https://img.shields.io/coveralls/telefonica/node-express-logging.svg)](https://coveralls.io/r/telefonica/node-express-logging)
 
 ## Installation
 
