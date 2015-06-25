@@ -42,8 +42,7 @@
   },
   "dependencies": {
     "node-uuid": "^1.4.2",
-    "on-headers": "^1.0.0",
-    "logops": "^0.4.1"
+    "on-headers": "^1.0.0"
   },
   "keywords": [
     "logging",
