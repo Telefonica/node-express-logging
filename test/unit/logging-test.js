@@ -19,10 +19,9 @@ describe('Logging Middleware Tests', function() {
     };
 
     var LoggingMiddleware = proxyquire('../../lib/logging', {
-      'logops': loggerMock,
       'on-headers': onHeadersMock
     });
-    loggingMiddleware = new LoggingMiddleware();
+    loggingMiddleware = new LoggingMiddleware(loggerMock);
   });
 
   it('should log the request and response', function() {

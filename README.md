@@ -1,6 +1,10 @@
 # express-logging
 
-Express middleware to log, using [logops](https://github.com/telefonicaid/logops) library, each request and response.
+Express middleware to log, using a configurable logger, each request and response.
+
+[![npm version](https://badge.fury.io/js/express-logging.svg)](http://badge.fury.io/js/express-logging)
+[![Build Status](https://travis-ci.org/telefonica/node-express-logging.svg)](https://travis-ci.org/telefonica/node-express-logging)
+[![Coverage Status](https://img.shields.io/coveralls/telefonica/node-express-logging.svg)](https://coveralls.io/r/telefonica/node-express-logging)
 
 ## Installation
 
@@ -12,10 +16,11 @@ npm install express-logging
 
 ```js
 var express = require('express'),
-    expressLogging = require('express-logging');
+    expressLogging = require('express-logging'),
+    logger = require('logops');
 
 var app = express();
-app.use(expressLogging());
+app.use(expressLogging(logger));
 
 app.listen(3000);
 ```
