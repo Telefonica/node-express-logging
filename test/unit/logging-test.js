@@ -3,7 +3,7 @@
 var proxyquire = require('proxyquire'),
     sinon = require('sinon');
 
-describe('Logging Middleware Tests', function() {
+describe('Logging Middleware Tests without blacklist', function() {
 
   var loggingMiddleware,
       loggerSpy;
@@ -146,6 +146,78 @@ describe('Logging Middleware Tests', function() {
         '/test?jwt=xxx']);
       expect(loggerSpy.getCall(1).args[0]).to.be.equal('Response with status %d in %d ms.');
       expect(loggerSpy.getCall(1).args[1]).to.be.equal(200);
+    });
+  });
+
+});
+
+describe('Logging Middleware Tests with blacklist', function() {
+
+  var loggingMiddleware,
+      loggerSpy;
+
+  beforeEach(function() {
+    var loggerMock = {
+      info: function() {}
+    };
+    loggerSpy = sinon.spy(loggerMock, 'info');
+
+    var onHeadersMock = function(res, cb) {
+      cb();
+    };
+
+    var LoggingMiddleware = proxyquire('../../lib/logging', {
+      'on-headers': onHeadersMock
+    });
+    loggingMiddleware = new LoggingMiddleware(loggerMock, ['/blacklist']);
+  });
+
+  it('should log the request and response', function() {
+    var req = {
+      method: 'GET',
+      ip: '10.128.201.134',
+      originalUrl: '/test?jwt=xxx',
+      get: function() {
+        return null;
+      }
+    };
+    var res = {
+      statusCode: 200,
+      get: function() {
+        return null;
+      }
+    };
+
+    loggingMiddleware(req, res, function() {
+      expect(loggerSpy.calledTwice).to.be.true;
+      expect(loggerSpy.getCall(0).args).to.be.deep.equal([
+        'Request from %s: %s %s',
+        '10.128.201.134',
+        'GET',
+        '/test?jwt=xxx']);
+      expect(loggerSpy.getCall(1).args[0]).to.be.equal('Response with status %d in %d ms.');
+      expect(loggerSpy.getCall(1).args[1]).to.be.equal(200);
+    });
+  });
+
+  it('should not log anything when the url path is in the blacklist', function() {
+    var req = {
+      method: 'GET',
+      ip: '10.128.201.134',
+      originalUrl: '/blacklist/test?jwt=xxx',
+      get: function() {
+        return null;
+      }
+    };
+    var res = {
+      statusCode: 200,
+      get: function() {
+        return null;
+      }
+    };
+
+    loggingMiddleware(req, res, function() {
+      expect(loggerSpy.called).to.be.false;
     });
   });
 

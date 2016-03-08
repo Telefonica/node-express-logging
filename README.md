@@ -25,6 +25,17 @@ app.use(expressLogging(logger));
 app.listen(3000);
 ```
 
+## Extended usage with blacklist
+
+An optional argument `blacklist` is available to prevent some resources from being logged (for example, static resources). This argument is an array of strings. If the URL path starts with any of the elements of the blacklist array, then the logging of this request/response is ignored.
+
+The following example would ignore any resource available at either `/images` or `/html`.
+
+```js
+var blacklist = ['/images', `html`];
+app.use(expressLogging(logger, blacklist));
+```
+
 ## Logs
 
 The request is logged with:
@@ -49,7 +60,7 @@ Both response log entries include the `duration` of the whole transaction (betwe
 
 ## License
 
-Copyright 2015 [Telefónica Investigación y Desarrollo, S.A.U](http://www.tid.es)
+Copyright 2015, 2016 [Telefónica Investigación y Desarrollo, S.A.U](http://www.tid.es)
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
