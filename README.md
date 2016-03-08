@@ -27,7 +27,7 @@ app.listen(3000);
 
 ## Extended usage with options
 
-An optional argument `options` can customizes enhanced aspects for the logging. This argument is an object with the following elements:
+An optional argument `options` can customize enhanced aspects for the logging. This argument is an object with the following elements:
 
  - `blacklist` is available to prevent some resources from being logged (for example, static resources). This argument is an array of strings. If the URL path starts with any of the elements of the blacklist array, then the logging of this request/response is ignored.
  - `policy` is a string to customize how the info is logged. It supports two values: `message` or `params`. The former serializes all the log entry into a single string message. The latter passes to the logger an object with the log entry parameters and a second argument with the message; this policy is useful in order to process these parameters by systems like logstash. The default value is `message`.
@@ -35,7 +35,7 @@ An optional argument `options` can customizes enhanced aspects for the logging. 
 The following example would ignore any resource available at either `/images` or `/html`. It also activates the logging policy `params`.
 
 ```js
-var blacklist = ['/images', `html`];
+var blacklist = ['/images', '/html'];
 app.use(expressLogging(logger, {blacklist: blacklist, policy: 'params'}));
 ```
 
