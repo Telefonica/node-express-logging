@@ -1,7 +1,7 @@
 {
   "name": "express-logging",
   "description": "Express middleware to log each request and response",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "Apache-2.0",
   "author": {
     "name": "Jorge Lorenzo Gallardo",
@@ -41,7 +41,6 @@
     "eslint": "^0.23.0"
   },
   "dependencies": {
-    "node-uuid": "^1.4.2",
     "on-headers": "^1.0.0"
   },
   "keywords": [
