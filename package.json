@@ -38,7 +38,7 @@
     "supertest": "^1.0.1",
     "xunit-file": "^0.0.4",
     "jscs": "^1.13.1",
-    "eslint": "^0.23.0"
+    "eslint": "^6.6.0"
   },
   "dependencies": {
     "on-headers": "^1.0.0"
